@@ -294,17 +294,18 @@ nav a{
 .filter-buttons .btn {
   padding: 0 15px;
   border: none;
-  background: #ddd;
+  background: var(--brand-100);
   cursor: pointer;
   margin: 0 5px;
   border-radius: 5px;
   transition: 0.3s;
   font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
 }
 
 .filter-buttons .btn.active,
 .filter-buttons .btn:hover {
-  background: #333;
+  background: var(--brand-500);
   color: #fff;
 }
 
