@@ -44,3 +44,11 @@ faqList.forEach((item) => {
     item.classList.toggle("active");
   });
 });
+
+const imgHeight = document.querySelectorAll(".masonry .item");
+imgHeight.forEach((img) => {
+  const min = 350;
+  const max = 480;
+  const randomHeight = Math.floor(Math.random() * (max - min + 1)) + min;
+  img.style.height = `${randomHeight}px`;
+});
