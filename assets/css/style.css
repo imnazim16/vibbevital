@@ -88,7 +88,7 @@ h3{font-size:var(--step-1);margin:.25rem 0 .25rem}
 .btn-primary {
     background: linear-gradient(135deg, var(--brand-blue), var(--brand-magenta));
     color: #fff;
-    border-color: transparent;
+    border-color: none;
     box-shadow: 0 8px 20px rgba(65, 105, 225, .25);
 }
 .btn-primary:hover {
@@ -180,11 +180,16 @@ nav a{
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
     align-items: center;
-    height: 85vh;
+    height: 90vh;
+    gap: 35px;
 }
 
-.img-border-radius{
+img.img-border-radius{
     border-radius: 30px;
+    box-shadow: var(--shadow);
+}
+img.img-width{
+    width: 75%
 }
 
 .services{
@@ -605,7 +610,25 @@ textarea {
     top: 5px;
     font-size: 2rem;
 }
-
+.web-services .grid-two-cols{
+    margin-bottom: 50px;
+    gap: 50px;
+}
+.web-services .grid-two-cols .about-img{
+    display: flex;
+    justify-content: center;
+}
+.web-services .grid-two-cols:nth-child(even) {
+  direction: rtl;
+}
+.web-services .grid-two-cols > div{
+    direction: ltr;
+}
+.about-company{
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 1.9rem;
+}
 /* === Responsive Design === */
 @media (max-width: 900px) {
   .contactSection {
