@@ -630,7 +630,57 @@ textarea {
     font-weight: 600;
     font-size: 1.9rem;
 }
+.mb-menu{display: none;}
 /* === Responsive Design === */
+@media (max-width: 1300px) {
+    .wrapper{
+        width: auto;
+        padding: 0 15px
+    }
+}
+@media (max-width: 1200px){
+    h1{ font-size: var(--step-3); }
+    nav ul{ gap: 10px; }
+    nav ul li{font-size: 14px;}
+    nav .btn-primary{font-size: 14px;}
+    .logo img{ width: 220px; }
+    .head-grid{ height: 70px; }
+    .breadcrumbs br{display: none;}
+}
+@media (max-width: 979px){
+    nav{display: none;}
+    .mb-menu{display: block;}
+    .hero-section{
+        padding-top: 100px;
+    }
+    .grid-col-2{
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 0;
+    }
+    .services{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about-gird, .work-grid{
+        grid-template-columns: 1fr;
+    }
+    .faq-section{
+        display: flex;
+        flex-direction: column;
+        flex-direction: column-reverse;
+        padding-top: 0;
+    }
+    .masonry{
+        columns: 2 200px;
+    }
+    .footer-grid{
+        gap: 20px;
+        font-size: 14px;
+    }
+    .foot-bottom{
+        font-size: 14px;
+    }
+}
 @media (max-width: 900px) {
   .contactSection {
     grid-template-columns: 1fr; /* stack image and form */
@@ -645,4 +695,55 @@ textarea {
   .inputLabel:last-child {
     grid-column: span 1;
   }
+}
+@media (max-width: 767px){
+    .sub-box{
+        font-size: 16px;
+    }
+    .grid-two-cols{
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .footer-grid{
+        grid-template-columns: 1fr;
+    }
+    .foot-block:first-child{
+        grid-column: span 1;
+    }
+    .logo img{width: 180px;}
+    .head-grid{ height: 50px; }
+    .web-services .section-head{
+        background-color: var(--brand-100);
+        margin: 0 -15px 30px;
+        padding: 40px 30px 10px;
+    }
+    img.img-width{
+        width: 100%;
+    }
+    .web-services .grid-two-cols{
+        gap: 20px;
+    }
+    .breadcrumbs{padding-top: 70px}
+    .about-company{font-size: var(--step-1);}
+    .services{padding-top: 0;}
+}
+@media (max-width: 639px){
+    .brands-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 579px){
+    .services{
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .stats-grid{
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+    .brands-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+    h2{ font-size: var(--step-1);}
 }
