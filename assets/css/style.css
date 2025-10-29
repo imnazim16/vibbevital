@@ -727,6 +727,7 @@ textarea {
     .breadcrumbs{padding-top: 70px}
     .about-company{font-size: var(--step-1);}
     .services{padding-top: 0;}
+    .experience{padding-right: 0;}
 }
 @media (max-width: 639px){
     .brands-grid{
