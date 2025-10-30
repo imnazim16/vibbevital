@@ -52,3 +52,12 @@ imgHeight.forEach((img) => {
   const randomHeight = Math.floor(Math.random() * (max - min + 1)) + min;
   img.style.height = `${randomHeight}px`;
 });
+
+// mobile menu
+const mbMenuBtn = document.querySelector(".mb-menu");
+const navMenu = document.querySelector("nav");
+mbMenuBtn.addEventListener("click", (e) => {
+  const { classList } = e.target;
+  navMenu.classList.toggle("mobile-nav");
+  classList.toggle("close");
+});

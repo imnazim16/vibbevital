@@ -649,7 +649,42 @@ textarea {
 }
 @media (max-width: 979px){
     nav{display: none;}
-    .mb-menu{display: block;}
+    .mb-menu{
+        display: block;
+        background: url(../img/menu.png) no-repeat center center;
+        width: 40px;
+        height: 40px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        text-indent: -9999px;
+        z-index: 101;
+    }
+    .mb-menu.close{
+        background: url(../img/close.png) no-repeat center center;
+    }
+    nav.mobile-nav{
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: var(--bg);
+        width: 300px;
+        height: 100vh;
+        z-index: 100;
+        box-shadow: var(--shadow);
+    }
+    nav{
+        padding: 70px 20px 0;
+    }
+    nav ul{
+        gap: 20px;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    nav ul li{
+        font-size: 18px;
+    }
     .hero-section{
         padding-top: 100px;
     }
@@ -680,6 +715,7 @@ textarea {
     .foot-bottom{
         font-size: 14px;
     }
+    .filter-buttons .btn{margin: 0 5px 15px;}
 }
 @media (max-width: 900px) {
   .contactSection {
@@ -728,6 +764,8 @@ textarea {
     .about-company{font-size: var(--step-1);}
     .services{padding-top: 0;}
     .experience{padding-right: 0;}
+    .contactForm{ display: flex; flex-direction: column; }
+    .contactSection{ padding: 0; }
 }
 @media (max-width: 639px){
     .brands-grid{
