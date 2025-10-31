@@ -61,3 +61,8 @@ mbMenuBtn.addEventListener("click", (e) => {
   navMenu.classList.toggle("mobile-nav");
   classList.toggle("close");
 });
+
+AOS.init();
+$(window).on("load", function () {
+  AOS.refresh();
+});
