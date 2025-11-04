@@ -684,7 +684,7 @@ body.dark-theme{
 body.dark-theme{
     color: var(--textWhite)
 }
-.sub-box{
+body.dark-theme .sub-box{
     background-color: var(--alt);
 }
 body.dark-theme img{
@@ -718,9 +718,6 @@ body.dark-theme .themeChange label{
 }
 body.dark-theme .sub-box:nth-child(2) .icon.circle img{
     filter: invert(100%);
-}
-body.dark-theme .header-section{
-    position: relative;
 }
 .mb-menu{
     position: absolute;
