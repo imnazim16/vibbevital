@@ -57,7 +57,6 @@ body{
   background:var(--bg);
   font-size:var(--step-0);
   line-height:1.65;
-  overflow-x: hidden;
 }
 img{max-width:100%;display:block;height:auto}
 a{color:inherit;text-decoration:none;transition:.2s color}
@@ -169,7 +168,7 @@ nav a{
     background: #DAE2FB;
     background: linear-gradient(180deg, rgba(218, 226, 251, 1) 0%, rgba(255, 255, 255, 0.55) 100%);
     padding-top: 70px;
-    
+    overflow: hidden;
 }
 .hero-section .actions {
     display: flex;
@@ -200,7 +199,7 @@ img.img-width{
     align-items: center;
     gap: 30px;
     grid-template-columns: repeat(3, 1fr);
-    padding-top: 50px;
+    padding-top: 10px;
 }
 .sub-box{
     /* background: var(--bg); */
@@ -233,6 +232,10 @@ img.img-width{
 }
 .about-bg{
     background-color: var(--alt);
+    overflow: hidden;
+}
+.work-section, .about-section, .section{
+    overflow: hidden;
 }
 .about-gird{
     display: grid;
@@ -534,7 +537,7 @@ img.img-width{
   background: #fff;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 /* Each input-label pair */
@@ -746,7 +749,7 @@ textarea {
         grid-template-columns: 1fr;
     }
     .foot-block:first-child{
-        grid-column: span 1;
+        grid-column: span 2;
     }
     .logo img{width: 180px;}
     .head-grid{ height: 50px; }
@@ -768,6 +771,7 @@ textarea {
     .contactForm{ display: flex; flex-direction: column; }
     .contactSection{ padding: 0; }
     .hero-section{padding-top: 70px;}
+    .contactForm{padding: 1.3rem;}
 }
 @media (max-width: 639px){
     .brands-grid{
