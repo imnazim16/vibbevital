@@ -486,8 +486,6 @@ img.img-width{
 .faq.active .faq-content{
     display: block;
 }
-
-
 .breadcrumbs{
     background: #D6006D;
     background: linear-gradient(110deg, rgba(83, 109, 237, 1) 0%, rgba(214, 0, 109, 1) 84%);
@@ -636,6 +634,106 @@ textarea {
     font-size: 1.9rem;
 }
 .mb-menu{display: none;}
+.themeChange input{
+    display: none;
+}
+.themeChange label{
+    background-color: #0e1b2a;
+    height: 30px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70px;
+    position: relative;
+    cursor: pointer;
+}
+.themeChange label i{
+    font-style: normal;
+    line-height: 26px;
+    color: #fff;
+    display: block;
+}
+.themeChange label span{
+    background-color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50px;
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: all ease-in-out 0.3s;
+}
+
+.themeChange input:checked + label span{
+    transform: translateX(42px);
+}
+
+body.dark-theme{
+    --bg: #0e1b2a;
+    --ink: #d8e8f0;
+    --ink-2: #a0b0c0;
+    --muted: #7a8a9e;
+    --line: #3a475c;
+    --card: #1a2332;
+    --alt: #16202b;
+    --textWhite: #ffffff;
+    --textBlack: #000000;
+}
+body.dark-theme{
+    color: var(--textWhite)
+}
+.sub-box{
+    background-color: var(--alt);
+}
+body.dark-theme img{
+    border-radius: var(--radius);
+}
+body.dark-theme .logo img{
+    border-radius: 0;
+}
+.faq-list{
+    color: var(--textBlack)
+}
+body.dark-theme header.header-section{
+    background-color: #0e1b2ab0;
+}
+body.dark-theme .hero-section{
+    background: #0E1B2A;
+}
+body.dark-theme .contactForm{
+    background: rgba(255,255,255,0.2);
+    color:#fff
+}
+body.dark-theme .contactForm label{
+    color:#fff
+}
+body.dark-theme .breadcrumbs{
+background: #0E1B2A;
+background: linear-gradient(262deg, rgba(14, 27, 42, 1) 0%, rgba(102, 102, 176, 1) 100%);
+}
+body.dark-theme .themeChange label{
+    background-color: #2c415a;
+}
+body.dark-theme .sub-box:nth-child(2) .icon.circle img{
+    filter: invert(100%);
+}
+body.dark-theme .header-section{
+    position: relative;
+}
+.mb-menu{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
+body.dark-theme .mb-menu{
+    background-color: #fff;
+    border-radius: 5px;
+}
+body.dark-theme .masonry .item img{
+    border-radius: 0;
+}
 /* === Responsive Design === */
 @media (max-width: 1300px) {
     .wrapper{
@@ -654,6 +752,11 @@ textarea {
 }
 @media (max-width: 979px){
     nav{display: none;}
+    .themeChange{
+        position: absolute;
+        top: 11px;
+        right: 76px;
+    }
     .mb-menu{
         display: block;
         background: url(../img/menu.png) no-repeat center center;

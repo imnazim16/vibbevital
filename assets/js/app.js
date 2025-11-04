@@ -62,6 +62,26 @@ mbMenuBtn.addEventListener("click", (e) => {
   classList.toggle("close");
 });
 
+const toggle = document.getElementById("themeToggle");
+
+// Check saved theme in localStorage
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  document.body.classList.add("dark-theme");
+  toggle.checked = true;
+}
+
+// Listen for toggle changes
+toggle.addEventListener("change", () => {
+  if (toggle.checked) {
+    document.body.classList.add("dark-theme");
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.body.classList.remove("dark-theme");
+    localStorage.setItem("theme", "light");
+  }
+});
+// AOS
 AOS.init();
 $(window).on("load", function () {
   AOS.refresh();
