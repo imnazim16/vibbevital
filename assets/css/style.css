@@ -653,6 +653,7 @@ textarea {
     line-height: 26px;
     color: #fff;
     display: block;
+    padding: 0 4px;
 }
 .themeChange label span{
     background-color: #fff;
