@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us | VibbeVital - IT & Business Services</title>
-    <meta name="title" content="Contact Us | VibbeVital - IT & Business Services">
+    <title>Contact VibbeVital | Connect for IT & Business Solutions</title>
+    <meta name="title" content="Contact VibbeVital | Connect for IT & Business Solutions">
     <meta name="description"
         content="Get in touch with VibbeVital for expert IT solutions, web development, UI/UX design, and more. Call +91 9717220696 or email info@vibbevital.com. We respond within 24 hours.">
     <meta name="author" content="VibbeVital Team">
@@ -15,7 +15,10 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body>
@@ -58,7 +61,7 @@
             </div>
         </section>
         <!-- Portfolio section -->
-        <section id="portfolio" class="section">
+        <section id="contact" class="section">
             <div class="wrapper">
                 <h2>Get in touch</h2>
                 <div class="info-box">
@@ -79,31 +82,41 @@
                         <img src="assets/img/contact.jpg" alt="">
                     </div>
                     <!-- right part -->
-                    <form class="contactForm">
-                        <!-- in these inputLabel should be in two columns -->
+                    <form id="contactForm" class="contactForm">
                         <div class="inputLabel">
                             <label for="fname">Name</label>
-                            <input id="fname" type="text">
+                            <input id="fname" name="fname" type="text">
+                            <small class="error"></small>
                         </div>
                         <div class="inputLabel">
                             <label for="email">Email</label>
-                            <input id="email" type="text">
+                            <input id="email" name="email" type="email">
+                            <small class="error"></small>
                         </div>
                         <div class="inputLabel">
-                            <label for="contact">Contact No.</label>
-                            <input id="contact" type="text">
+                            <label for="phone">Contact No.</label>
+                            <input id="phone" name="phone" type="text">
+                            <small class="error"></small>
                         </div>
                         <div class="inputLabel">
                             <label for="website">Website URL</label>
-                            <input id="website" type="text">
+                            <input id="website" name="website" type="url">
+                            <small class="error"></small>
+                        </div>
+                        <div class="inputLabel textareaBox">
+                            <label for="subject">Your Subject</label>
+                            <input id="subject" name="subject" type="text">
+                            <small class="error"></small>
                         </div>
                         <div class="inputLabel textareaBox">
                             <label for="message">Message</label>
-                            <textarea name="" id="message"></textarea>
+                            <textarea id="message" name="message"></textarea>
+                            <small class="error"></small>
                         </div>
-                        <div class="inputLabel">
+                        <div class="inputLabel textareaBox">
                             <button type="submit">Submit</button>
                         </div>
+                        <div class="success-msg inputLabel textareaBox" id="success"></div>
                     </form>
                 </div>
             </div>
@@ -198,15 +211,76 @@
         <div class="foot-bottom">
             <div class="wrapper foot-row">
                 <p>© <span id="year"></span> vibbevital. All rights reserved.</p>
-                <ul class="social">
+                <p class="ft-links">
+                    <a href="terms-conditions.html">Terms & Conditions</a> /
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </p>
+                <!-- <ul class="social">
                     <li><a href="#" aria-label="Twitter">𝕏</a></li>
                     <li><a href="#" aria-label="LinkedIn">in</a></li>
                     <li><a href="#" aria-label="GitHub">gh</a></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </footer>
     <script src="assets/js/app.js"></script>
+    <script>
+        // Form submission handling
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+            contactForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                // Clear previous error messages
+                document.querySelectorAll(".error").forEach((el) => {
+                    el.textContent = "";
+                });
+
+                // Collect form data
+                const formData = new FormData(contactForm);
+                const data = {
+                    fname: formData.get("fname"),
+                    email: formData.get("email"),
+                    phone: formData.get("phone"),
+                    website: formData.get("website"),
+                    subject: formData.get("subject"),
+                    message: formData.get("message"),
+                };
+
+                // Basic validation
+                const errors = {};
+                if (!data.fname.trim()) errors.fname = "Name is required";
+                if (!data.email.trim()) errors.email = "Email is required";
+                if (!data.phone.trim()) errors.phone = "Phone is required";
+                if (!data.website.trim()) errors.website = "Please enter a valid website URL.";
+                if (!data.subject.trim()) errors.subject = "Subject is required";
+                if (!data.message.trim()) errors.message = "Message is required";
+
+                if (Object.keys(errors).length > 0) {
+                    Object.keys(errors).forEach((key) => {
+                        const field = document.getElementById(key);
+                        const errorEl = field.nextElementSibling;
+                        if (errorEl && errorEl.classList.contains("error")) {
+                            errorEl.textContent = errors[key];
+                        }
+                    });
+                    return;
+                }
+
+                // Show success message and reset form
+                const successEl = document.getElementById("success");
+                successEl.textContent = "Thank you! Your message has been sent successfully.";
+                successEl.style.display = "block";
+                contactForm.reset();
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successEl.textContent = "";
+                    successEl.style.display = "none";
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 
 </html>

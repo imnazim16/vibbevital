@@ -81,6 +81,7 @@ toggle.addEventListener("change", () => {
     localStorage.setItem("theme", "light");
   }
 });
+
 // AOS
 AOS.init();
 $(window).on("load", function () {
